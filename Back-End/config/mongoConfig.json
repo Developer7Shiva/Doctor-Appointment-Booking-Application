@@ -1,3 +1,3 @@
 {
-    "mongoUrl" : "mongodb+srv://Shiva:ShivaShiva@cluster0.fdoq8.mongodb.net/DocApp?retryWrites=true&w=majority"
+  "mongoUrl": "mongodb Connection url"
 }
