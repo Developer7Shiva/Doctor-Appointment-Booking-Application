@@ -1,0 +1,143 @@
+<c-container class="shadow-sm mb-5 bg-white rounded">
+  <c-row>
+    <c-card class="p-0">
+      <c-card-header>Book an Appointment</c-card-header>
+      <c-card-body>
+        <table class="table table-striped mb-0 border table-responsive-md">
+          <thead class="thead-dark">
+            <tr class="align-middle">
+              <th>#</th>
+              <th>Name</th>
+              <th>Gender</th>
+              <th>Qualification</th>
+              <th>Expertise</th>
+              <!-- <th>Experience</th> -->
+              <th>Location</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody
+            class="table-group-divider"
+            class="table-group-divider"
+            *ngFor="let patient of patients; let i = index">
+            <tr class="">
+              <th scope="row">{{i+1}}</th>
+              <td>{{ patient.name }}</td>
+              <td>{{ patient.gender }}</td>
+              <td>{{ patient.qualification }}</td>
+              <td>{{ patient.expertise }}</td>
+              <!-- <td>{{ patient.experience }}</td> -->
+              <td>{{ patient.address }}</td>
+              <td>{{ patient.email }}</td>
+              <td>{{ patient.phone }}</td>
+              <td>
+                <button class="btn btn-primary me-3 text-center" (click)="openBookingModal(bookigmodal,patient._id)">Book Now</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </c-card-body>
+    </c-card>
+  </c-row>
+</c-container>
+
+
+<ng-template #bookigmodal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Doctor Information :</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form cForm (ngSubmit)="onBookDoc(f)" #f="ngForm">
+        <div class="mb-3">
+          <label cLabel for="exampleFormControlInput1">Name :</label>
+          <input
+          disabled="true"
+            cFormControl
+            id="exampleFormControlInput1"
+            type="text"
+            [(ngModel)]="name"
+            name="name"
+          />
+        </div>
+        <div class="mb-3">
+          <label cLabel for="exampleFormControlInput1">Specialist :</label>
+          <input
+            disabled="true"
+            cFormControl
+            id="exampleFormControlInput1"
+            type="text"
+            [(ngModel)]="specialist"
+            name="specialist"
+          />
+        </div>
+        <div class="mb-3">
+          <label cLabel for="exampleFormControlInput1">Qualification :</label>
+          <input
+          disabled="true"
+            cFormControl
+            id="exampleFormControlInput1"
+            type="text"
+            [(ngModel)]="qualification"
+            name="qualification"
+          />
+        </div>
+        <div class="mb-3">
+          <label cLabel for="exampleFormControlTextarea1">Location : </label>
+          <input
+          disabled="true"
+            cFormControl
+            id="exampleFormControlTextarea1"
+            rows="3"
+            ngModel
+            name="location"
+            [(ngModel)]="location"
+          />
+        </div>
+        <div class="mb-3">
+          <label cLabel for="exampleFormControlTextarea1">Date : </label>
+          <div class="col">
+            <input
+              cFormControl
+              type="date"
+              id="exampleFormControlTextarea1"
+              rows="3"
+              ngModel
+              name="date"
+              [(ngModel)]="date"
+            />
+            <input
+              cFormControl
+              type="date"
+              id="exampleFormControlTextarea1"
+              rows="3"
+              ngModel
+              name="date"
+              [(ngModel)]="date"
+            />
+          </div>
+        </div>
+        
+      </form>
+  </div>
+  <div class="modal-footer">
+    <div class="mb-3">
+      <button type="button" class="btn btn-danger" (click)="modal.close()">
+        Cancel
+      </button>
+
+    </div>
+    <div class="mb-3">
+          <button class="btn btn-primary" type="submit">Book Now</button>
+        </div>
+  </div>
+</ng-template>

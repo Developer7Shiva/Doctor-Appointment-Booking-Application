@@ -1,0 +1,115 @@
+<c-container class="shadow-sm mb-5 bg-white rounded">
+  <c-row>
+    <c-card class="p-0">
+      <c-card-header>Patients List</c-card-header>
+      <c-card-body>
+        <table class="table table-striped mb-0 border me-0">
+          <thead>
+            <tr class="align-middle">
+              <th>#</th>
+              <th>Name</th>
+              <th>Gender</th>
+              <th>Email Id</th>
+              <th>Phone</th>
+              <th>Height</th>
+              <th>Weight</th>
+              <th>Address</th>
+              <th class="text-center">Action</th>
+            </tr>
+          </thead>
+          <tbody
+            class="table-group-divider"
+            *ngFor="let patient of patients; let i = index"
+          >
+            <tr class="">
+              <th scope="row"></th>
+              <td>{{ patient.name }}</td>
+              <td>{{ patient.gender }}</td>
+              <td>{{ patient.phone }}</td>
+              <td>{{ patient.maritalStatus }}</td>
+              <td>{{ patient.height }}</td>
+              <td>{{ patient.weight }}</td>
+              <td>{{ patient.address }}</td>
+              <td class="text-center">
+                <button class="btn btn-success me-3" (click)="openModal(mymodal,patient._id)">View</button>
+                <button class="btn btn-primary me-3" (click)="openEditComp(patient._id)">Edit</button>
+                <button class="btn btn-danger me-0" (click)="deletePatient(patient._id)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </c-card-body>
+    </c-card>
+  </c-row>
+</c-container>
+
+
+<ng-template #mymodal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Patient Details</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="mb-3">
+        <label class="form-label"
+          >Name : <span>{{ patientModal.name }}</span></label
+        >
+      </div>
+      <div class="mb-3">
+        <label class="form-label"
+          >Gender : <span>{{ patientModal.gender }}</span></label
+        >
+      </div>
+      <div class="mb-3">
+        <label class="form-label"
+          >Birth Date : <span>{{ patientModal.birthDate }}</span></label
+        >
+      </div>
+      <div class="mb-3">
+        <label class="form-label"
+          >Address : <span>{{ patientModal.address }}</span></label
+        >
+      </div>
+      <div class="mb-3">
+        <label class="form-label"
+          >Email : <span>{{ patientModal.email }}</span></label
+        >
+      </div>
+      <div class="mb-3">
+        <label class="form-label"
+          >Phone Number : <span>{{ patientModal.phone }}</span></label
+        >
+      </div>
+      <div class="mb-3">
+        <label class="form-label"
+          >Marital Status : <span>{{ patientModal.maritalStatus }}</span></label
+        >
+      </div>
+      <div class="mb-3">
+        <label class="form-label"
+          >Height : <span>{{ patientModal.height }}</span></label
+        >
+      </div>
+      <div class="mb-3">
+        <label class="form-label"
+          >Weight : <span>{{ patientModal.weight }}</span></label
+        >
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close()">
+      Ok
+    </button>
+  </div>
+</ng-template>
+
+

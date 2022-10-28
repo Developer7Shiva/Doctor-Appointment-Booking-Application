@@ -1,0 +1,86 @@
+<c-col xs="12">
+  <c-card class="mb-4">
+    <c-card-header>
+      <strong>Edit Doctor Details</strong>
+    </c-card-header>
+
+    <c-card-body>
+      <form cForm (ngSubmit)="onDocUpdate(f)" #f="ngForm">
+        <div class="mb-3">
+          <label cLabel for="exampleFormControlInput1">Name</label>
+          <input
+            cFormControl
+            id="exampleFormControlInput1"
+            type="text"
+            [(ngModel)]="name"
+            name="name"
+          />
+        </div>
+        <div class="mb-3">
+          <label cLabel for="exampleFormControlInput1">Gender</label>
+          <input
+            cFormControl
+            id="exampleFormControlInput1"
+            type="text"
+            [(ngModel)]="gender"
+            name="gender"
+          />
+        </div>
+        <div class="mb-3">
+          <label cLabel for="exampleFormControlInput1">Expertise</label>
+          <input
+            cFormControl
+            id="exampleFormControlInput1"
+            type="text"
+            [(ngModel)]="expertise"
+            name="expertise"
+          />
+        </div>
+        <div class="mb-3">
+          <label cLabel for="exampleFormControlInput1">Experience</label>
+          <input
+            cFormControl
+            id="exampleFormControlInput1"
+            type="text"
+            [(ngModel)]="experience"
+            name="experience"
+          />
+        </div>
+        <div class="mb-3">
+          <label cLabel for="exampleFormControlInput1">Email</label>
+          <input
+            cFormControl
+            id="exampleFormControlInput1"
+            type="text"
+            [(ngModel)]="email"
+            name="email"
+          />
+        </div>
+        <div class="mb-3">
+          <label cLabel for="exampleFormControlInput1">phone</label>
+          <input
+            cFormControl
+            id="exampleFormControlInput1"
+            type="text"
+            [(ngModel)]="phone"
+            name="phone"
+          />
+        </div>
+        <div class="mb-3">
+          <label cLabel for="exampleFormControlTextarea1">Location</label>
+          <input
+            cFormControl
+            id="exampleFormControlTextarea1"
+            rows="3"
+            ngModel
+            name="address"
+            [(ngModel)]="address"
+          />
+        </div>
+        <div class="mb-3">
+          <button class="btn btn-primary" type="submit">Update</button>
+        </div>
+      </form>
+    </c-card-body>
+  </c-card>
+</c-col>

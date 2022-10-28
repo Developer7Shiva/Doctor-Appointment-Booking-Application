@@ -1,0 +1,89 @@
+<c-col xs="12">
+  <c-card class="mb-4">
+    <c-card-header>
+      <strong>Edit Admin Details</strong>
+    </c-card-header>
+
+    <c-card-body>
+      <form cForm (ngSubmit)="onPatientUpdate(f)" #f="ngForm">
+        <div class="mb-3">
+          <label cLabel for="exampleFormControlInput1">Name :</label>
+          <input
+            cFormControl
+            id="exampleFormControlInput1"
+            type="text"
+            [(ngModel)]="name"
+            name="name"
+          />
+        </div>
+        <div class="mb-3">
+          <label cLabel for="exampleFormControlInput1">Email :</label>
+          <input
+            cFormControl
+            id="exampleFormControlInput1"
+            type="text"
+            [(ngModel)]="email"
+            name="email"
+          />
+        </div>
+        <div class="mb-3">
+          <label cLabel for="exampleFormControlInput1">Phone :</label>
+          <input
+            cFormControl
+            id="exampleFormControlInput1"
+            type="text"
+            [(ngModel)]="phone"
+            name="phone"
+          />
+        </div>
+        <div class="mb-3">
+          <label cLabel for="exampleFormControlTextarea1">Gender : </label>
+          <input
+            cFormControl
+            id="exampleFormControlTextarea1"
+            rows="3"
+            ngModel
+            name="gender"
+            [(ngModel)]="gender"
+          />
+        </div>
+        <div class="mb-3">
+          <label cLabel for="exampleFormControlTextarea1">Height : </label>
+          <input
+            cFormControl
+            id="exampleFormControlTextarea1"
+            rows="3"
+            ngModel
+            name="height"
+            [(ngModel)]="height"
+          />
+        </div>
+        <div class="mb-3">
+          <label cLabel for="exampleFormControlTextarea1">Weight : </label>
+          <input
+            cFormControl
+            id="exampleFormControlTextarea1"
+            rows="3"
+            ngModel
+            name="weight"
+            [(ngModel)]="weight"
+          />
+        </div>
+        <div class="mb-3">
+          <label cLabel for="exampleFormControlTextarea1">Address : </label>
+          <input
+            cFormControl
+            id="exampleFormControlTextarea1"
+            rows="3"
+            ngModel
+            name="address"
+            [(ngModel)]="address"
+          />
+        </div>
+        <div class="mb-3">
+          <button class="btn btn-primary" type="submit">Update</button>
+        </div>
+      </form>
+    </c-card-body>
+  </c-card>
+</c-col>
